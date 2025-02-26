@@ -1,5 +1,6 @@
-import { FaSun, FaMoon, FaStar } from "react-icons/fa";
-
+import Sun from "../assets/sun.svg";
+import Star from "../assets/star.svg";
+import Moon from "../assets/moon.png";
 const ComponentFour = () => {
   const sections = [
     {
@@ -86,8 +87,8 @@ const ComponentFour = () => {
 
   const intelligenceData = [
     {
-      category: "Predominant and advantageous intelligences",
-      icon: <FaSun className="text-yellow-500 w-10 h-10" />,
+      category: "Predominant and Advantageous Intelligences",
+      icon: Sun,
       items: [
         "Interpersonal Intelligence",
         "Intrapersonal Intelligence",
@@ -98,8 +99,8 @@ const ComponentFour = () => {
       ],
     },
     {
-      category: "Intelligences with potential for further moulding",
-      icon: <FaMoon className="text-blue-500 w-10 h-10" />,
+      category: "Intelligences with Potential for Further Moulding",
+      icon: Moon,
       items: [
         "Planning & Judgement",
         "Spatial & Mental Image",
@@ -111,12 +112,42 @@ const ComponentFour = () => {
       ],
     },
     {
-      category: "Intelligences to be strengthened",
-      icon: <FaStar className="text-yellow-400 w-10 h-10" />,
-      items: [
-        "Creation & Imagination",
-        "Kinesthetic Intelligence",
-        "Music Appreciation",
+      category: "Intelligences to be Strengthened",
+      icon: Star,
+      items: ["Creation & Imagination", "Kinesthetic Intelligence", "Music Appreciation"],
+    },
+  ];
+
+  const categories = [
+    {
+      title: "Personality Analysis",
+      left: [
+        "Stronger ability in management.",
+        "Clear thinking and not bound by traditions, able to integrate own opinions and understanding.",
+        "Know own needs and directions, self-disciplined.",
+        "Loyal to friends, easily bogged down and may get implicated by friends.",
+        "Values spiritual growth.",
+      ],
+      right: [
+        "Loyal to friends, easily get bogged down or may get implicated by friends.",
+        "Takes initiative, sets goals often, and is self-motivated.",
+        "Subjective, ego-centric, and individualistic.",
+        "With a strong motive, will go all out, does not give up easily.",
+      ],
+    },
+    {
+      title: "Personality Traits & Types",
+      left: [
+        "Leadership: Good in planning and diagnosis, tends to be subjective.",
+        "Possesses management abilities including decision making and strategy implementation.",
+        "Belongs to the personality traits of leading and planning.",
+        "Believes more in reasoning and evidence.",
+      ],
+      right: [
+        "Proactive: Has a proactive personality and is ambitious.",
+        "Able to set own goals, self-motivated.",
+        "Has the personality trait to pioneer and start new things/ventures.",
+        "Seeing is believing.",
       ],
     },
   ];
@@ -124,17 +155,21 @@ const ComponentFour = () => {
   return (
     <>
       <div>
-        <div className="mt-14">
+        <div className="my-14">
           <h1 className="text-3xl font-semibold mb-6">
             Strength Indicator of 16 Innate Multiple Intelligences
           </h1>
 
           {/* Legend */}
-          <div className="flex justify-center gap-8 mb-8">
+          <div className="flex justify-start gap-8 mb-8">
             {intelligenceData.map((category, index) => (
-              <div key={index} className="flex items-center space-x-2">
-                {category.icon}
-                <span className="text-xl font-semibold text-blue-400">
+              <div key={index} className="flex items-center space-x-1 py-3">
+                <img
+                  src={category.icon}
+                  alt={category.category}
+                  className="w-10 h-10"
+                />
+                <span className="text-base font-semibold text-blue-500 px-6">
                   {category.category}
                 </span>
               </div>
@@ -142,15 +177,15 @@ const ComponentFour = () => {
           </div>
 
           {/* Intelligence Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {intelligenceData.map((category, index) =>
               category.items.map((item, idx) => (
                 <div
-                  key={idx}
-                  className="border rounded-lg p-4 items-center space-x-2"
+                  key={`${index}-${idx}`}
+                  className="border rounded-lg p-4 items-center space-x-3"
                 >
-                  {category.icon}
-                  <span className="text-base font-medium">{item}</span>
+                  <img src={category.icon} alt="icon" className="w-8 h-8" />
+                  <p className="text-base font-medium pt-2">{item}</p>
                 </div>
               ))
             )}
@@ -161,98 +196,61 @@ const ComponentFour = () => {
       <div>
         {sectionsData.map((section, index) => (
           <div key={index} className="border rounded-2xl overflow-hidden mb-6">
-            <h1 className={`${section.bgColor} p-6 text-2xl font-semibold`}>
+            <h1
+              className={`${section.bgColor} p-6 text-lg font-semibold text-[#222222]`}
+            >
               {section.title}
             </h1>
-            <div className="m-6">
-              <h1 className="text-base font-semibold">CHARACTERISTICS</h1>
-              <p className="text-base">{section.characteristics}</p>
+            <div className="my-4 mx-6">
+              <h1 className="text-sm font-semibold">CHARACTERISTICS</h1>
+              <p className="text-[12px] text-[#86878C]">
+                {section.characteristics}
+              </p>
             </div>
-            <div className="m-6">
-              <h1 className="text-base font-semibold">RECOMMENDATIONS</h1>
-              <p className="text-base">{section.recommendations}</p>
+            <div className="my-4 mx-6">
+              <h1 className="text-sm font-semibold">RECOMMENDATIONS</h1>
+              <p className="text-[12px] text-[#86878C]">
+                {section.recommendations}
+              </p>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="p-4">
+      <div className="my-8">
         <div className="grid grid-cols-3 border border-black rounded-xl overflow-hidden">
-          {/* Header */}
           <div className="bg-white border-r"></div>
-          <div className="bg-yellow-500 text-black p-2 text-center font-semibold border-r border-b">
+          <div className="bg-yellow-500 text-black p-2 text-center text-sm font-semibold border-r border-b">
             Left Brain
           </div>
-          <div className="bg-yellow-500 text-black p-2 text-center font-semibold border-b">
+          <div className="bg-yellow-500 text-black p-2 text-center text-sm font-medium border-b">
             Right Brain
           </div>
 
-          {/* Personality Analysis */}
-          <div className="bg-gray-100 p-2 font-semibold border-r border-b border-t">
-            Personality Analysis
-          </div>
-          <div className="p-2 border-r border-b">
-            <ol className="list-decimal pl-4">
-              <li>Stronger ability in management.</li>
-              <li>
-                Clear thinking and not bound by traditions, able to integrate
-                own opinions and understanding.
-              </li>
-              <li>Know own needs and directions, self-disciplined.</li>
-              <li>
-                Loyal to friends, easily bogged down and may get implicated by
-                friends.
-              </li>
-              <li>Values spiritual growth.</li>
-            </ol>
-          </div>
-          <div className="p-2 border-b">
-            <ol className="list-decimal pl-4">
-              <li>
-                Loyal to friends, easily get bogged down or may get implicated
-                by friends.
-              </li>
-              <li>
-                Takes initiative, sets goals often, and is self-motivated.
-              </li>
-              <li>Subjective, ego-centric, and individualistic.</li>
-              <li>
-                With a strong motive, will go all out, does not give up easily.
-              </li>
-            </ol>
-          </div>
-
-          {/* Personality Traits & Types */}
-          <div className="bg-gray-100 p-2 font-semibold border-r">
-            Personality Traits & Types
-          </div>
-          <div className="p-2 border-r">
-            <ol className="list-decimal pl-4">
-              <li>
-                Leadership: Good in planning and diagnosis, tends to be
-                subjective.
-              </li>
-              <li>
-                Possesses management abilities including decision making and
-                strategy implementation.
-              </li>
-              <li>
-                Belongs to the personality traits of leading and planning.
-              </li>
-              <li>Believes more in reasoning and evidence.</li>
-            </ol>
-          </div>
-          <div className="p-2">
-            <ol className="list-decimal pl-4">
-              <li>Proactive: Has a proactive personality and is ambitious.</li>
-              <li>Able to set own goals, self-motivated.</li>
-              <li>
-                Has the personality trait to pioneer and start new
-                things/ventures.
-              </li>
-              <li>Seeing is believing.</li>
-            </ol>
-          </div>
+          {categories.map((category, index) => (
+            <>
+              <div
+                key={index}
+                className="bg-gray-100 p-2 font-semibold border-r border-t"
+              >
+                {category.title}
+              </div>
+              <div className="p-2 border-r border-t">
+                <ol className="list-decimal pl-4">
+                  {category.left.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ol>
+              </div>
+              <div className="p-2 border-t">
+                <ol className="list-decimal pl-4">
+                  {category.right.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ol>
+              </div>
+            </>
+          ))}
         </div>
       </div>
 
@@ -262,10 +260,12 @@ const ComponentFour = () => {
             key={index}
             className={`border ${section.borderColor} ${section.bgColor} p-4 my-4 rounded-lg`}
           >
-            <h2 className={`${section.textColor} font-semibold text-2xl`}>
+            <h2
+              className={`${section.textColor} font-semibold text-base text-[#222222]`}
+            >
               {section.title}
             </h2>
-            <p className="text-base">{section.text}</p>
+            <p className="text-[12px]">{section.text}</p>
           </div>
         ))}
       </div>

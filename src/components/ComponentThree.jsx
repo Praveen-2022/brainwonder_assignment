@@ -1,33 +1,30 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
-const intelligenceData = [
-  { name: "Interpersonal Intelligence", value: 80, color: "bg-green-500" },
-  { name: "Linguistic Intelligence", value: 70, color: "bg-orange-500" },
-  { name: "Intrapersonal Intelligence", value: 75, color: "bg-orange-500" },
-  { name: "Naturalist Intelligence", value: 65, color: "bg-red-500" },
-  {
-    name: "Logical-Mathematical Intelligence",
-    value: 72,
-    color: "bg-orange-500",
-  },
-  { name: "Musical Intelligence", value: 50, color: "bg-red-500" },
-  { name: "Spatial Intelligence", value: 90, color: "bg-green-500" },
-  { name: "Bodily-Kinesthetic Intelligence", value: 80, color: "bg-green-500" },
+const data = [
+  { name: "Interpersonal Intelligence", value: 80, color: "#008000" }, // Green
+  { name: "Linguistic Intelligence", value: 70, color: "#FFA500" }, // Orange
+  { name: "Intrapersonal Intelligence", value: 75, color: "#FFA500" }, // Orange
+  { name: "Naturalist Intelligence", value: 65, color: "#FFA500" }, // Orange
+  { name: "Logical-Mathematical Intelligence", value: 72, color: "#FFA500" }, // Orange
+  { name: "Musical Intelligence", value: 50, color: "#FF0000" }, // Red
+  { name: "Spatial Intelligence", value: 90, color: "#008000" }, // Green
+  { name: "Bodily-Kinesthetic Intelligence", value: 80, color: "#008000" }, // Green
 ];
 const careersData = [
-  { name: "Science", value: 46, color: "#1E3A8A" },
-  { name: "Commerce", value: 30, color: "#60A5FA" },
-  { name: "Arts", value: 16, color: "#93C5FD" },
-  { name: "Others", value: 8, color: "#E5E7EB" },
+  { name: "Science", value: 46, color: "#2F769E" },
+  { name: "Commerce", value: 30, color: "#69A4C7" },
+  { name: "Arts", value: 16, color: "#9ACBE8" },
+  { name: "Others", value: 8, color: "#C4E7FB" },
 ];
 
 const industryData = [
-  { name: "Marketing", value: 38, color: "#1E3A8A" },
-  { name: "Management", value: 22, color: "#A8A8A8" },
-  { name: "Engineering & IT", value: 20, color: "#60A5FA" },
-  { name: "Design", value: 12, color: "#93C5FD" },
-  { name: "Other", value: 8, color: "#E5E7EB" },
+  { name: "Marketing", value: 38, color: "#2F769E" },
+  { name: "Management", value: 22, color: "#69A4C7" },
+  { name: "Engineering & IT", value: 20, color: "#9ACBE8" },
+  { name: "Design", value: 12, color: "#C4E7FB" },
+  { name: "Other", value: 8, color: "#DFDFDF" },
 ];
+
 const ComponentThree = () => {
   const charts = [
     {
@@ -47,58 +44,80 @@ const ComponentThree = () => {
   ];
 
   return (
-    <div className="mt-16">
+    <div className="my-[140px]">
       <h1 className="text-3xl font-bold mb-8">
         Classification 8 Multiple Intelligences
       </h1>
-      <div className="grid grid-cols-2">
-        {/*  */}
-        <div className="grid grid-cols-2 gap-4">
-          {intelligenceData.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center border p-4 rounded-lg shadow-sm"
-            >
-              <div className="relative w-16 h-16">
-                <svg
-                  className="w-full h-full transform -rotate-90"
-                  viewBox="0 0 36 36"
-                >
-                  <circle
-                    className="text-gray-200 stroke-current"
-                    strokeWidth="3"
-                    cx="18"
-                    cy="18"
-                    r="16"
-                    fill="none"
-                  />
-                  <circle
-                    className="text-blue-500 stroke-current"
-                    strokeWidth="4"
-                    strokeDasharray={`${item.value}, 100`}
-                    cx="18"
-                    cy="18"
-                    r="16"
-                    fill="none"
-                  />
-                </svg>
-              </div>
-              <p className="text-center text-xl font-semibold mt-2">
-                {item.name}
-              </p>
-              <span
-                className={`px-2 py-1 mt-1 text-white text-lg font-bold rounded ${item.color}`}
-              >
-                {item.value}%
-              </span>
+      <div className="grid grid-cols-2 gap-10">
+        {/* Left Div */}
+        <div className="bg-white rounded-lg w-full border">
+          <div className="flex justify-center items-center space-x-4 my-6">
+            {/* Strength */}
+            <div className="flex items-center space-x-3">
+              <span className="w-4 h-4 bg-green-600 rounded-full"></span>
+              <span className="text-sm font-semibold">Strength - 3</span>
             </div>
-          ))}
+
+            {/* Average */}
+            <div className="flex items-center space-x-1">
+              <span className="w-4 h-4 bg-orange-500 rounded-full"></span>
+              <span className="text-sm font-semibold">Average - 3</span>
+            </div>
+
+            {/* Weakness */}
+            <div className="flex items-center space-x-1">
+              <span className="w-4 h-4 bg-red-600 rounded-full"></span>
+              <span className="text-sm font-semibold">Weakness - 2</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-0">
+            {data.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center p-4 border"
+              >
+                <p className="text-sm font-semibold text-center py-4">
+                  {item.name}
+                </p>
+                <div className="flex items-center space-x-2">
+                  <PieChart width={80} height={80} className="">
+                    <Pie
+                      data={[
+                        { value: item.value },
+                        { value: 100 - item.value },
+                      ]}
+                      dataKey="value"
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={18}
+                      outerRadius={32}
+                      startAngle={90}
+                      endAngle={450}
+                    >
+                      <Cell fill={item.color} />
+                      <Cell fill="#e5e7eb" />{" "}
+                      {/* Gray for the remaining part */}
+                    </Pie>
+                  </PieChart>
+                  <span
+                    className="text-xl font-bold text-[#222222]"
+                    // style={{ color: item.color }}
+                  >
+                    {item.value}%
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+
+        {/* right Div */}
         <div className="flex flex-col gap-6 items-center">
           {charts.map(({ title, description, data, total }, index) => (
             <div
               key={index}
-              className="border rounded-xl p-6 shadow-lg bg-white max-w-lg"
+              className="border rounded-xl p-6 shadow-lg bg-white w-[570px] h-[370px]"
             >
               <h3 className="text-xl font-semibold">{title}</h3>
               <p className="text-gray-500 text-sm">{description}</p>
@@ -165,22 +184,28 @@ const ComponentThree = () => {
                   {data.map((entry, i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-2 border-b-2 pb-[2px] border-gray-400"
+                      className="flex items-center gap-2 border-b-2 pb-[2px] border-[#dedede]"
                     >
                       <span
                         className="w-4 h-4 rounded-sm"
                         style={{ backgroundColor: entry.color }}
                       ></span>
-                      <span className="text-lg font-medium">{entry.name}</span>
-                      <span className="ml-auto font-bold">{entry.value}%</span>
+                      <span className="pr-24 text-[#222222] text-sm font-medium">
+                        {entry.name}
+                      </span>
+                      <span className="text-[#222222] ml-auto font-medium pr-3">
+                        {entry.value}%
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <button className="w-full mt-6 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition">
-                VIEW DETAILS
-              </button>
+              <div className="flex justify-end mt-6">
+                <button className="py-2 px-4 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition">
+                  VIEW DETAILS
+                </button>
+              </div>
             </div>
           ))}
         </div>

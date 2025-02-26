@@ -1,6 +1,7 @@
 import ComponentFive from "./components/ComponentFive";
 import ComponentFour from "./components/ComponentFour";
 import ComponentOne from "./components/ComponentOne";
+import ComponentSix from "./components/ComponentSix";
 import ComponentThree from "./components/ComponentThree";
 import ComponentTwo from "./components/ComponentTwo";
 import Footer from "./components/Footer";
@@ -10,8 +11,9 @@ function App() {
   return (
     <>
       <Header />
-      <div className="mx-32">
+      <div className="mx-[140px]">
         <ComponentOne />
+        <ComponentSix/>
         <ComponentTwo />
         <ComponentThree />
         <ComponentFour />

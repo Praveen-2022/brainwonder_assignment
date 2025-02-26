@@ -5,36 +5,36 @@ const ComponentOne = () => {
   return (
     <div>
       <div className="my-10">
-        <h1 className="text-xl font-semibold text-center">DMIT Reports</h1>
-        <h1 className="text-3xl font-semibold text-center text-blue-400 ">
+        <h1 className="text-base font-semibold text-center">DMIT Reports</h1>
+        <h1 className="text-2xl font-semibold text-center text-blue-400 ">
           Sunil Sharma
         </h1>
       </div>
 
       <div className="border-b-1 grid grid-cols-6">
         <div>
-          <h2 className="font-semibold text-gray-500">Number</h2>
-          <p className="font-semibold">XX5544XXYYXX43</p>
+          <h2 className="text-sm font-semibold text-gray-500">Number</h2>
+          <p className="font-medium">XX5544XXYYXX43</p>
         </div>
         <div>
-          <h2 className="font-semibold text-gray-500">Assessment Date</h2>
-          <p className="font-semibold">2016/4/3</p>
+          <h2 className="text-sm font-semibold text-gray-500">Assessment Date</h2>
+          <p className="font-medium">2016/4/3</p>
         </div>
         <div>
           <h2 className="font-semibold text-gray-500">DOB</h2>
-          <p className="font-semibold">1982/4/23</p>
+          <p className="font-medium">1982/4/23</p>
         </div>
         <div>
           <h2 className="font-semibold text-gray-500">Gender</h2>
-          <p className="font-semibold">Male</p>
+          <p className="font-medium">Male</p>
         </div>
         <div>
           <h2 className="font-semibold text-gray-500">Email</h2>
-          <p className="font-semibold">Ankit123@gmail.com</p>
+          <p className="font-medium">Ankit123@gmail.com</p>
         </div>
         <div>
           <h2 className="font-semibold text-gray-500">Mobile Number</h2>
-          <p className="font-semibold">9632228575</p>
+          <p className="font-medium">9632228575</p>
         </div>
       </div>
       <h1 className="text-3xl font-semibold my-10">
@@ -43,19 +43,19 @@ const ComponentOne = () => {
       <div className="flex items-center justify-center">
         <div className=" flex flex-row gap-4">
           <span className="flex items-center space-x-2 border-2 px-4 py-2 rounded-lg border-blue-500">
-            <span className=" bg-red-600 rounded-full p-2"></span>
+            <span className=" bg-[#ED191D] rounded-full p-2"></span>
             <p className="text-base font-semibold">Weakness - 2</p>
           </span>
           <span className="flex items-center space-x-2 border-2 px-4 py-2 rounded-lg border-blue-500">
-            <span className="bg-orange-600 rounded-full p-2"></span>
+            <span className="bg-[#F1611B] rounded-full p-2"></span>
             <p className="text-base font-semibold">Below Average - 6</p>
           </span>
           <span className="flex items-center space-x-2 border-2 px-4 py-2 rounded-lg border-blue-500">
-            <span className="bg-lime-600 rounded-full p-2"></span>
+            <span className="bg-[#AAC02B] rounded-full p-2"></span>
             <p className="text-base font-semibold">Above Average - 7</p>
           </span>
           <span className="flex items-center space-x-2 border-2 px-4 py-2 rounded-lg border-blue-500">
-            <span className="bg-green-600 rounded-full p-2"></span>
+            <span className="bg-[#087D00] rounded-full p-2"></span>
             <p className="text-base font-semibold">Strength - 4</p>
           </span>
         </div>
@@ -91,7 +91,7 @@ const ComponentOne = () => {
               {/* Communication Capability */}
               <div className="flex justify-between">
                 <div className="-mr-8">
-                  <div className="w-8 h-8 bg-green-600 rounded"></div>
+                  <div className="w-8 h-8 bg-[#087D00] rounded"></div>
                 </div>
                 <div>
                   <p className="text-xl">Communication Capability</p>
@@ -104,7 +104,7 @@ const ComponentOne = () => {
               {/* Visual Observation Capability */}
               <div className="flex justify-between items-center">
                 <div className="mr-3">
-                  <div className="w-8 h-8 bg-lime-500 rounded"></div>
+                  <div className="w-8 h-8 bg-[#AAC02B] rounded"></div>
                 </div>
                 <div>
                   <p className="text-xl">
@@ -155,7 +155,7 @@ const ComponentOne = () => {
               {/* Visual Observation Capability */}
               <div className="flex justify-between items-center">
                 <div className="mr-3">
-                  <div className="w-8 h-8 bg-orange-600 rounded"></div>
+                  <div className="w-8 h-8 bg-[#F1611B] rounded"></div>
                 </div>
                 <div>
                   <p className="text-xl">Spatial Calculations & Imagination</p>
